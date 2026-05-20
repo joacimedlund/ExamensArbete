@@ -1,0 +1,68 @@
+﻿@model AlphaWebApp.Models.ViewModels.ProjectCardViewModel
+
+<article class="card project-card">
+    <header class="card-header">
+        <div class="project-image">
+            <img src="@Url.Content(Model.ImageUrl)" alt="@Model.Name" />
+        </div>
+
+        <div class="project-meta">
+            <h3 class="project-name">@Model.Name</h3>
+            <div class="project-client">@Model.Client</div>
+        </div>
+
+        <button class="project-actions" type="button"
+                aria-haspopup="true" aria-expanded="false"
+                data-menu-id="menu-@Model.Id">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div id="menu-@Model.Id" class="menu" role="menu" aria-hidden="true">
+            <button class="menu-item" role="menuitem"
+                    data-action="edit"
+                    data-modal="true"
+                    data-target="#editProjectModal-@Model.Id">
+                <span class="menu-ico">✎</span><span>Edit</span>
+            </button>
+            <form asp-controller="Projects" asp-action="Delete" method="post"
+                  onsubmit="return confirm('Delete this project?');"
+                  style="display:inline">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button class="menu-item danger" role="menuitem" type="submit">
+                    <span class="menu-ico">🗑</span><span>Delete Project</span>
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <div class="card-body">
+        <p class="description">@(string.IsNullOrWhiteSpace(Model.Description) ? "No description provided." : Model.Description)</p>
+        <p class="meta">
+            @if (Model.StartDate.HasValue)
+            {
+                <span>Start: @Model.StartDate.Value.ToString("yyyy-MM-dd")</span>
+            }
+            @if (Model.EndDate.HasValue)
+            {
+                <span> · End: @Model.EndDate.Value.ToString("yyyy-MM-dd")</span>
+            }
+            <span> · @Model.Status</span>
+        </p>
+    </div>
+</article>
+
+@{
+    var editModel = new EditProjectForm
+    {
+        Id = Model.Id,
+        ProjectName = Model.Name,
+        ClientName = Model.Client,
+        Description = Model.Description,
+        Budget = Model.Budget,
+        StartDate = Model.StartDate,
+        EndDate = Model.EndDate,
+        Status = Model.Status,
+    };
+}
+<partial name="Partials/Modals/_EditProjectModal" model="editModel" />

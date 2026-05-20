@@ -1,0 +1,47 @@
+﻿@using AlphaWebApp.Data.Entities
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<AppUserEntity> UserManager
+
+@{
+    var appUser = User?.Identity?.IsAuthenticated == true ? await UserManager.GetUserAsync(User) : null;
+    var fullName = (appUser?.FirstName, appUser?.LastName) switch
+    {
+        (string fn, string ln) when !string.IsNullOrWhiteSpace(fn) || !string.IsNullOrWhiteSpace(ln)
+            => $"{fn} {ln}".Trim(),
+        _ => User?.Identity?.Name ?? "Guest"
+    };
+}
+
+<header>
+    <div class="searchbox"></div>
+
+    <div class="account">
+       
+        <button id="accountBtn"
+                class="account-btn"
+                type="button"
+                aria-label="Account menu"
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-dropdown-target="#accountMenu">
+            <img src="~/Images/kugghjulet.svg" alt="" />
+        </button>
+
+        <img src="~/Images/avatar.svg" alt="Avatar" class="account-avatar" />
+
+        <div id="accountMenu" class="account-menu" role="menu" aria-hidden="true">
+            <div class="account-menu-header">
+                <img src="~/Images/avatar.svg" alt="" class="account-menu-avatar" />
+                <span class="account-fullname">@fullName</span>
+            </div>
+
+            <form asp-controller="Auth" asp-action="Logout" method="post" role="none">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="account-logout" role="menuitem">
+                    <span class="account-logout-ico">↪</span>
+                    <span>Logout</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</header>

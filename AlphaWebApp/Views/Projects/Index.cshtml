@@ -1,0 +1,54 @@
+﻿@using AlphaWebApp.Models
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+@model IEnumerable<AlphaWebApp.Models.ViewModels.ProjectCardViewModel>
+
+<section id="projects">
+    <header class="page-headline">
+        <h2>@ViewData["Title"]</h2>
+        <button data-modal="true" data-target="#addProjectModal" class="btn btn-blue btn-add" type="button">Add Project</button>
+    </header>
+
+    <nav class="proj-tabs">
+        <a asp-action="Index" asp-route-tab="all"
+           class="proj-tab @( (ViewBag.ActiveTab as string) == "all" ? "active" : "" )">
+            ALL (@(ViewBag.AllCount ?? 0))
+        </a>
+        <a asp-action="Index" asp-route-tab="started"
+           class="proj-tab @( (ViewBag.ActiveTab as string) == "started" ? "active" : "" )">
+            STARTED (@(ViewBag.StartedCount ?? 0))
+        </a>
+        <a asp-action="Index" asp-route-tab="completed"
+           class="proj-tab @( (ViewBag.ActiveTab as string) == "completed" ? "active" : "" )">
+            COMPLETED (@(ViewBag.CompletedCount ?? 0))
+        </a>
+    </nav>
+
+    <main class="content">
+
+        
+             @if (Model?.Any() == true)
+            {
+                foreach (var card in Model)
+                {
+                    <partial name="_ProjectCard" model="card" />
+                }
+            }
+            else
+            {
+                <div class="card"><div class="card-body"><p>No projects yet.</p></div></div>
+            } 
+       
+
+       
+
+      
+    </main>
+
+</section>
+
+<partial name="Partials/Modals/_AddProjectModal"
+         model="ViewBag.AddForm ?? new AddProjectForm()" />

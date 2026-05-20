@@ -1,0 +1,173 @@
+﻿@using AlphaWebApp.Data.Enums
+@model AddProjectForm
+
+<div id="addProjectModal" class="modal">
+    <div class="modal-content">
+        <header class="modal-header">
+            <h3>Add Project</h3>
+            <button data-close="true" data-target="#addProjectModal" type="button" class="btn-close"></button>
+        </header>
+
+        <div class="modal-logotype">
+            <img src="~/Images/project-logotype.svg" />
+        </div>
+
+        <main class="modal-body">
+         
+            <form method="post" asp-controller="ProjectAdd" asp-action="Create" data-validate="project" data-failmsg="Unable to create project"  novalidate>
+                                              
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <label asp-for="ProjectName"></label>
+                    <div class="field-group">
+                        <input asp-for="ProjectName" required maxlength="200" />
+                        <span asp-validation-for="ProjectName"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ClientName"></label>
+                    <div class="field-group">
+                        <input asp-for="ClientName" required maxlength="200" />
+                        <span asp-validation-for="ClientName"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <div class="field-group">
+                        <textarea asp-for="Description" rows="5"
+                                  data-autogrow="true" data-max-height="220"
+                                  maxlength="4000"></textarea>
+                        <span asp-validation-for="Description"></span>
+                    </div>
+                </div>
+
+                <div class="form-row two">
+                    <div class="form-group">
+                        <label asp-for="StartDate"></label>
+                        <div class="field-group date-field">
+                            <input asp-for="StartDate" type="date" />
+                        </div>
+                        <span asp-validation-for="StartDate"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="EndDate"></label>
+                        <div class="field-group date-field">
+                            <input asp-for="EndDate" type="date" />
+                        </div>
+                        <span asp-validation-for="EndDate"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Status"></label>
+                    <div class="field-group">
+                        <select asp-for="Status"
+                                asp-items="Html.GetEnumSelectList<ProjectStatus>()"
+                                required></select>
+                    </div>
+                    <span asp-validation-for="Status"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Budget"></label>
+                    <div class="field-group">
+                        <input asp-for="Budget" type="number" step="1" min="0" max="1000000000" inputmode="decimal" />
+                        <span asp-validation-for="Budget"></span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-blue btn-submit">Create</button>
+            </form>
+        </main>
+    </div>
+</div>
+
+
+
+
+@* @using AlphaWebApp.Data.Enums
+@model AddProjectForm
+
+<div id="addProjectModal"  class="modal">
+    <div class="modal-content">
+        <header class="modal-header">
+            <h3>Add Project</h3>
+            <button data-close="true" data-target="#addProjectModal" type="button" class="btn-close"></button>
+        </header>
+
+        <div class="modal-logotype">
+            <img src="~/Images/project-logotype.svg" />
+        </div>
+
+        <main class="modal-body">
+            <form novalidate method="post" asp-action="Create" asp-controller="ProjectAdd">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <label asp-for="ProjectName"></label>
+                    <div class="field-group">
+                        <input asp-for="ProjectName" class="input-validation-error" />
+                        <span asp-validation-for = "ProjectName"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ClientName"></label>
+                    <div class="field-group">
+                        <input asp-for="ClientName" class="input-validation-error"  />
+                        <span asp-validation-for="ClientName"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <div class="field-group">
+                        <textarea asp-for="Description" class="input-validation-error" rows="3"></textarea>
+                        <span asp-validation-for="Description"></span>
+                    </div>
+                </div>
+                <div class="form-row two">
+                    <div class="form-group">
+                        <label asp-for="StartDate"></label>
+                        <div class="field-group date-field">
+                            <input asp-for="StartDate" type="date" />                          
+                        </div>
+                        <span asp-validation-for="StartDate"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="EndDate"></label>
+                        <div class="field-group date-field">
+                            <input asp-for="EndDate" type="date" />                          
+                        </div>
+                        <span asp-validation-for="EndDate"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Status"></label>
+                    <div class="field-group">
+                        <select asp-for="Status"
+                                asp-items="Html.GetEnumSelectList<ProjectStatus>()"></select>
+                    </div>
+                    <span asp-validation-for="Status"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Budget"></label>
+                    <div class="field-group">
+                        <input asp-for="Budget" class="input-validation-error"  />
+                        <span asp-validation-for="Budget"></span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-blue btn-submit">Create</button>
+
+            </form>
+        </main>
+    </div>
+</div> *@

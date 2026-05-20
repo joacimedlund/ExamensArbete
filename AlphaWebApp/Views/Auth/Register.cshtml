@@ -1,0 +1,77 @@
+﻿@model RegisterForm
+@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Register";
+}
+
+<section id="signin">
+    <div class="content surface">
+        <div class="section-header"><h2>@ViewData["Title"]</h2></div>
+
+        <div class="section-body">
+            <form asp-action="Register" asp-controller="Auth" method="post"
+                  data-validate="auth" novalidate>
+                @Html.AntiForgeryToken()
+
+                <div class="error-message">@ViewBag?.ErrorMessage</div>
+
+                <div class="form-group">
+                    <label asp-for="FirstName"></label>
+                    <div class="field-group">
+                        <input asp-for="FirstName" required maxlength="100" autofocus />
+                        <span asp-validation-for="FirstName"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <div class="field-group">
+                        <input asp-for="LastName" required maxlength="100" />
+                        <span asp-validation-for="LastName"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <div class="field-group">
+                        <input asp-for="Email" type="email" required />
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <div class="field-group">
+                        <input asp-for="Password" type="password" required minlength="6" />
+                        <span asp-validation-for="Password"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <div class="field-group">
+                        <input asp-for="ConfirmPassword" type="password" required minlength="6" />
+                        <span asp-validation-for="ConfirmPassword"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input asp-for="TermsandConditions" />
+                        <label asp-for="TermsandConditions">
+                            I accept <a asp-action="Terms" asp-controller="About">Terms and Conditions</a>
+                        </label>
+                    </div>
+                    <span asp-validation-for="TermsandConditions"></span>
+                </div>
+
+                <button type="submit" class="btn btn-blue btn-submit">Create Account</button>
+            </form>
+        </div>
+
+        <div class="section-footer">
+            <span>Don't have an account?</span>
+            <a asp-action="Login" asp-controller="Auth">Log In</a>
+        </div>
+    </div>
+</section>
