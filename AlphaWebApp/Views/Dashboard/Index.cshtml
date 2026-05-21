@@ -1,0 +1,62 @@
+@model AlphaWebApp.Models.ViewModels.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<section id="dashboard">
+    <header class="page-headline">
+        <div>
+            <p class="eyebrow">Overview</p>
+            <h2>@ViewData["Title"]</h2>
+        </div>
+        <a asp-controller="Projects" asp-action="Index" class="btn btn-blue">View Projects</a>
+    </header>
+
+    <div class="stats-grid">
+        <article class="stat-card">
+            <span class="stat-label">Total Projects</span>
+            <strong>@Model.TotalProjects</strong>
+        </article>
+        <article class="stat-card">
+            <span class="stat-label">Started</span>
+            <strong>@Model.StartedProjects</strong>
+        </article>
+        <article class="stat-card">
+            <span class="stat-label">Completed</span>
+            <strong>@Model.CompletedProjects</strong>
+        </article>
+        <article class="stat-card">
+            <span class="stat-label">Upcoming Deadlines</span>
+            <strong>@Model.UpcomingDeadlines</strong>
+        </article>
+    </div>
+
+    <section class="dashboard-section">
+        <header class="section-title">
+            <h3>Upcoming deadlines</h3>
+            <a asp-controller="Projects" asp-action="Index">View all projects</a>
+        </header>
+
+        @if (Model.UpcomingProjects.Any())
+        {
+            <div class="deadline-list">
+                @foreach (var project in Model.UpcomingProjects)
+                {
+                    <a class="deadline-item" asp-controller="Projects" asp-action="Details" asp-route-id="@project.Id">
+                        <span>
+                            <strong>@project.Name</strong>
+                            <small>@project.Client</small>
+                        </span>
+                        <span class="status-pill">@project.Status</span>
+                        <time>@project.EndDate?.ToString("yyyy-MM-dd")</time>
+                    </a>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="empty-state">No upcoming deadlines in the next 14 days.</div>
+        }
+    </section>
+</section>

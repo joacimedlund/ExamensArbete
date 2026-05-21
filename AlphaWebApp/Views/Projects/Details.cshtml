@@ -1,0 +1,50 @@
+@model AlphaWebApp.Models.ViewModels.ProjectDetailsViewModel
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<section id="project-details">
+    <header class="page-headline">
+        <div>
+            <a asp-controller="Projects" asp-action="Index" class="back-link">Back to projects</a>
+            <h2>@Model.Name</h2>
+            <p class="page-subtitle">@Model.Client</p>
+        </div>
+        <span class="status-pill">@Model.Status</span>
+    </header>
+
+    <div class="details-grid">
+        <article class="details-panel">
+            <h3>Project summary</h3>
+            <p class="description">
+                @(string.IsNullOrWhiteSpace(Model.Description) ? "No description provided." : Model.Description)
+            </p>
+        </article>
+
+        <aside class="details-panel project-facts">
+            <h3>Details</h3>
+            <dl>
+                <div>
+                    <dt>Start date</dt>
+                    <dd>@(Model.StartDate?.ToString("yyyy-MM-dd") ?? "Not set")</dd>
+                </div>
+                <div>
+                    <dt>End date</dt>
+                    <dd>@(Model.EndDate?.ToString("yyyy-MM-dd") ?? "Not set")</dd>
+                </div>
+                <div>
+                    <dt>Budget</dt>
+                    <dd>@(Model.Budget.HasValue ? $"{Model.Budget.Value:0.##} kr" : "Not set")</dd>
+                </div>
+            </dl>
+        </aside>
+    </div>
+
+    <section class="details-panel task-preview">
+        <div>
+            <h3>Tasks</h3>
+            <p>Task management will be added in the next implementation step.</p>
+        </div>
+    </section>
+</section>

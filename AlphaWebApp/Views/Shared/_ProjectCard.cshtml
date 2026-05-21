@@ -7,7 +7,9 @@
         </div>
 
         <div class="project-meta">
-            <h3 class="project-name">@Model.Name</h3>
+            <h3 class="project-name">
+                <a asp-controller="Projects" asp-action="Details" asp-route-id="@Model.Id">@Model.Name</a>
+            </h3>
             <div class="project-client">@Model.Client</div>
         </div>
 
@@ -18,6 +20,12 @@
         </button>
 
         <div id="menu-@Model.Id" class="menu" role="menu" aria-hidden="true">
+            <a class="menu-item" role="menuitem"
+               asp-controller="Projects"
+               asp-action="Details"
+               asp-route-id="@Model.Id">
+                <span class="menu-ico">↗</span><span>View Details</span>
+            </a>
             <button class="menu-item" role="menuitem"
                     data-action="edit"
                     data-modal="true"

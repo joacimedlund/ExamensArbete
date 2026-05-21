@@ -6,7 +6,6 @@ using AlphaWebApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel;
 
 namespace AlphaWebApp.Controllers;
 
@@ -16,7 +15,6 @@ namespace AlphaWebApp.Controllers;
 public class ProjectsController(IProjectService svc, UserManager<AppUserEntity> um) : Controller
 {
 
-    [HttpGet]
     [HttpGet]
     public async Task<IActionResult> Index(string? tab = "all")
     {
@@ -56,6 +54,30 @@ public class ProjectsController(IProjectService svc, UserManager<AppUserEntity> 
             .ToList();
 
         return View(vms);
+    }
+
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> Details(Guid id)
+    {
+        var userId = um.GetUserId(User)!;
+        var project = await svc.GetByIdForUserAsync(id, userId);
+
+        if (project == null)
+            return NotFound();
+
+        var vm = new ProjectDetailsViewModel
+        {
+            Id = project.Id,
+            Name = project.ProjectName,
+            Client = project.ClientName,
+            Description = project.Description,
+            Budget = project.Budget,
+            StartDate = project.StartDate,
+            EndDate = project.EndDate,
+            Status = project.Status
+        };
+
+        return View(vm);
     }
     //[HttpGet]
     //public async Task<IActionResult> Index()

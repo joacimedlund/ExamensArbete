@@ -67,7 +67,7 @@ public class AuthController(IUserService userService, SignInManager<AppUserEntit
 
         var result = await _signInManager.PasswordSignInAsync(form.Email, form.Password, form.IsPersistent, false);
         if(result.Succeeded)
-            return RedirectToAction("Index", "Projects");
+            return RedirectToAction("Index", "Dashboard");
 
 
         ViewBag.ErrorMessage = "Invalid email or password";
