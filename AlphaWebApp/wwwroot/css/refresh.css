@@ -86,6 +86,29 @@ body {
     color: var(--blue-accent);
 }
 
+.project-image {
+    background: #eef4ff;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+.project-image img {
+    width: 76%;
+    height: 76%;
+    object-fit: contain;
+}
+
+.modal-logotype {
+    margin-bottom: 1.5rem;
+}
+
+.modal-logotype img {
+    display: block;
+    width: 132px;
+    max-width: 40%;
+    height: auto;
+    object-fit: contain;
+}
+
 .menu-item {
     text-decoration: none;
 }

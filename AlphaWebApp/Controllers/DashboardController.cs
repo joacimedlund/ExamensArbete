@@ -38,7 +38,7 @@ public class DashboardController(IProjectService projectService, UserManager<App
                 StartDate = p.StartDate,
                 EndDate = p.EndDate,
                 Status = p.Status,
-                ImageUrl = "~/Images/project-logotype.svg"
+                ImageUrl = "~/Images/projectFlowImage.png"
             })
             .ToList();
 

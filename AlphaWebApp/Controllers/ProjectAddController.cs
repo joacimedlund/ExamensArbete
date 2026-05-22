@@ -24,7 +24,7 @@ public class ProjectAddController(IProjectService svc, UserManager<AppUserEntity
             Client = p.ClientName,
             Description = p.Description,
             Budget = p.Budget,
-            ImageUrl = "~/Images/project-logotype.svg"
+            ImageUrl = "~/Images/projectFlowImage.png"
         });
         return View(vms);
     }

@@ -13,5 +13,5 @@ namespace ProjectFlowWebApp.Models.ViewModels;
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
     public ProjectStatus Status { get; set; } = ProjectStatus.Planned;
-    public string ImageUrl { get; set; } = "~/Images/project-logotype.svg";
+    public string ImageUrl { get; set; } = "~/Images/projectFlowImage.png";
     }

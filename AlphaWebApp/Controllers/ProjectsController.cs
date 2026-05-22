@@ -49,7 +49,7 @@ public class ProjectsController(IProjectService svc, ITaskService taskSvc, UserM
                 StartDate = p.StartDate,
                 EndDate = p.EndDate,
                 Status = p.Status, 
-                ImageUrl = "~/Images/project-logotype.svg"
+                ImageUrl = "~/Images/projectFlowImage.png"
             })
             .ToList();
 
@@ -128,7 +128,7 @@ public class ProjectsController(IProjectService svc, ITaskService taskSvc, UserM
                 Client = p.ClientName,
                 Description = p.Description,
                 Budget = p.Budget,
-                ImageUrl = "~/Images/project-logotype.svg"
+                ImageUrl = "~/Images/projectFlowImage.png"
             }).ToList();
 
             ViewBag.EditErrorProjectId = form.Id;
