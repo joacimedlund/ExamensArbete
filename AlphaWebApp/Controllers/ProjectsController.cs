@@ -12,7 +12,7 @@ namespace AlphaWebApp.Controllers;
 
 [Authorize]
 [Route("projects")]
-public class ProjectsController(IProjectService svc, UserManager<AppUserEntity> um) : Controller
+public class ProjectsController(IProjectService svc, ITaskService taskSvc, UserManager<AppUserEntity> um) : Controller
 {
 
     [HttpGet]
@@ -65,6 +65,8 @@ public class ProjectsController(IProjectService svc, UserManager<AppUserEntity> 
         if (project == null)
             return NotFound();
 
+        var tasks = await taskSvc.GetForProjectAsync(id, userId);
+
         var vm = new ProjectDetailsViewModel
         {
             Id = project.Id,
@@ -74,7 +76,18 @@ public class ProjectsController(IProjectService svc, UserManager<AppUserEntity> 
             Budget = project.Budget,
             StartDate = project.StartDate,
             EndDate = project.EndDate,
-            Status = project.Status
+            Status = project.Status,
+            AddTaskForm = new AddTaskForm { ProjectId = project.Id },
+            Tasks = tasks.Select(t => new TaskItemViewModel
+            {
+                Id = t.Id,
+                ProjectId = t.ProjectId,
+                Title = t.Title,
+                Description = t.Description,
+                DueDate = t.DueDate,
+                Status = t.Status,
+                Priority = t.Priority
+            }).ToList()
         };
 
         return View(vm);

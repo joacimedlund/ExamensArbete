@@ -1,4 +1,5 @@
 using AlphaWebApp.Data.Enums;
+using AlphaWebApp.Models;
 
 namespace AlphaWebApp.Models.ViewModels;
 
@@ -12,4 +13,6 @@ public class ProjectDetailsViewModel
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
     public ProjectStatus Status { get; set; } = ProjectStatus.Planned;
+    public AddTaskForm AddTaskForm { get; set; } = new();
+    public List<TaskItemViewModel> Tasks { get; set; } = [];
 }

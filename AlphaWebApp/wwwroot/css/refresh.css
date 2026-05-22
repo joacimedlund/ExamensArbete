@@ -237,13 +237,131 @@ body {
     font-weight: var(--font-bold);
 }
 
-.task-preview {
+.task-preview,
+.tasks-panel {
     color: var(--text-extra-muted-color);
+}
+
+.task-form {
+    display: grid;
+    gap: .75rem;
+    margin-bottom: 1rem;
+}
+
+.task-form-main {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) 170px 150px auto;
+    gap: .75rem;
+    align-items: start;
+}
+
+.task-form textarea {
+    min-height: 76px;
+}
+
+.task-list {
+    display: grid;
+    gap: .85rem;
+}
+
+.task-item {
+    display: grid;
+    gap: .75rem;
+    border: 1px solid #e7ebf0;
+    border-radius: 12px;
+    padding: 1rem;
+    background: #fff;
+}
+
+.task-item.is-done {
+    background: #f8fafc;
+}
+
+.task-item.is-done h4 {
+    text-decoration: line-through;
+    color: var(--text-extra-muted-color);
+}
+
+.task-item-summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: start;
+}
+
+.task-item h4,
+.task-item p {
+    margin: 0;
+}
+
+.task-item p {
+    color: var(--text-extra-muted-color);
+    line-height: 1.5;
+    margin-top: .35rem;
+}
+
+.task-meta,
+.task-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-items: center;
+}
+
+.task-meta {
+    margin-top: .7rem;
+    color: var(--text-extra-muted-color);
+    font-size: .9rem;
+}
+
+.priority-pill {
+    display: inline-flex;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: var(--font-bold);
+    padding: .35rem .75rem;
+}
+
+.priority-low {
+    background: #ecfdf3;
+    color: #027a48;
+}
+
+.priority-medium {
+    background: #fff7e6;
+    color: #b54708;
+}
+
+.priority-high {
+    background: #fef3f2;
+    color: #b42318;
+}
+
+.btn-compact {
+    padding: .45rem .75rem;
+    font-size: .9rem;
+    border-color: #d9dee8;
+    background: #fff;
+}
+
+.btn-danger {
+    color: #b42318;
+}
+
+.task-edit summary {
+    cursor: pointer;
+    color: var(--blue-accent);
+    font-weight: var(--font-semibold);
+    width: fit-content;
 }
 
 @media (max-width: 1000px) {
     .stats-grid,
     .details-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .task-form-main {
         grid-template-columns: 1fr 1fr;
     }
 }
@@ -262,7 +380,9 @@ body {
 
     .stats-grid,
     .details-grid,
-    .deadline-item {
+    .deadline-item,
+    .task-form-main,
+    .task-item-summary {
         grid-template-columns: 1fr;
     }
 }

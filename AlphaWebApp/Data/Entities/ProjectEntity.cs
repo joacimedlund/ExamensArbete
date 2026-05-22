@@ -30,5 +30,7 @@ namespace AlphaWebApp.Data.Entities
         public string UserId { get; set; } = null!;            
 
         public AppUserEntity User { get; set; } = null!;
+
+        public ICollection<TaskEntity> Tasks { get; set; } = new List<TaskEntity>();
     }
 }
