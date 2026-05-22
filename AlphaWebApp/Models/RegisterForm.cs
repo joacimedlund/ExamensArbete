@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 
-namespace AlphaWebApp.Models;
+namespace ProjectFlowWebApp.Models;
 
 public class RegisterForm
 {

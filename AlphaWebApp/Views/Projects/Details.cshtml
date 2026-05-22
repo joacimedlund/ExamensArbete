@@ -1,5 +1,5 @@
-@using AlphaWebApp.Data.Enums
-@model AlphaWebApp.Models.ViewModels.ProjectDetailsViewModel
+@using ProjectFlowWebApp.Data.Enums
+@model ProjectFlowWebApp.Models.ViewModels.ProjectDetailsViewModel
 
 @{
     ViewData["Title"] = Model.Name;
@@ -91,7 +91,7 @@
                         Priority = task.Priority
                     };
 
-                    <article class="task-item @(task.Status == AlphaWebApp.Data.Enums.TaskStatus.Done ? "is-done" : "")">
+                    <article class="task-item @(task.Status == ProjectFlowWebApp.Data.Enums.TaskStatus.Done ? "is-done" : "")">
                         <div class="task-item-summary">
                             <div>
                                 <h4>@task.Title</h4>
@@ -107,7 +107,7 @@
                             </div>
 
                             <div class="task-actions">
-                                @if (task.Status != AlphaWebApp.Data.Enums.TaskStatus.Done)
+                                @if (task.Status != ProjectFlowWebApp.Data.Enums.TaskStatus.Done)
                                 {
                                     <form asp-controller="Tasks" asp-action="Complete" method="post">
                                         @Html.AntiForgeryToken()
@@ -135,7 +135,7 @@
                                     <input name="Title" value="@editForm.Title" maxlength="200" required />
                                     <input name="DueDate" value="@editForm.DueDate?.ToString("yyyy-MM-dd")" type="date" />
                                     <select name="Status">
-                                        @foreach (var status in Enum.GetValues<AlphaWebApp.Data.Enums.TaskStatus>())
+                                        @foreach (var status in Enum.GetValues<ProjectFlowWebApp.Data.Enums.TaskStatus>())
                                         {
                                             <option value="@((int)status)" selected="@(status == editForm.Status ? "selected" : null)">@status</option>
                                         }

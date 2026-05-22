@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace AlphaWebApp.Migrations
+namespace ProjectFlowWebApp.Migrations
 {
     /// <inheritdoc />
     public partial class IdentityAdded : Migration

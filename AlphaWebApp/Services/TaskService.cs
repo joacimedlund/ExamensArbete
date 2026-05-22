@@ -1,11 +1,11 @@
-using AlphaWebApp.Data.Contexts;
-using AlphaWebApp.Data.Entities;
-using AlphaWebApp.Data.Enums;
-using AlphaWebApp.Models;
+using ProjectFlowWebApp.Data.Contexts;
+using ProjectFlowWebApp.Data.Entities;
+using ProjectFlowWebApp.Data.Enums;
+using ProjectFlowWebApp.Models;
 using Microsoft.EntityFrameworkCore;
-using TaskStatus = AlphaWebApp.Data.Enums.TaskStatus;
+using TaskStatus = ProjectFlowWebApp.Data.Enums.TaskStatus;
 
-namespace AlphaWebApp.Services;
+namespace ProjectFlowWebApp.Services;
 
 public interface ITaskService
 {

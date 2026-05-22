@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace AlphaWebApp.Migrations
+namespace ProjectFlowWebApp.Migrations
 {
     /// <inheritdoc />
     public partial class AddProjectStatus : Migration

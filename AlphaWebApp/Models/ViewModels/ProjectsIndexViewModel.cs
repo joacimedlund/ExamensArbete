@@ -1,4 +1,4 @@
-﻿namespace AlphaWebApp.Models.ViewModels
+namespace ProjectFlowWebApp.Models.ViewModels
 {
     public class ProjectsIndexViewModel
     {

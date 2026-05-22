@@ -1,9 +1,9 @@
-﻿using AlphaWebApp.Data.Entities;
+using ProjectFlowWebApp.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace AlphaWebApp.Data.Contexts;
+namespace ProjectFlowWebApp.Data.Contexts;
 
 public class DataContext(DbContextOptions<DataContext> options)
     : IdentityDbContext<AppUserEntity, IdentityRole, string>(options)

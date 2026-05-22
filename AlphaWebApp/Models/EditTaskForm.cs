@@ -1,8 +1,8 @@
-using AlphaWebApp.Data.Enums;
+using ProjectFlowWebApp.Data.Enums;
 using System.ComponentModel.DataAnnotations;
-using TaskStatus = AlphaWebApp.Data.Enums.TaskStatus;
+using TaskStatus = ProjectFlowWebApp.Data.Enums.TaskStatus;
 
-namespace AlphaWebApp.Models;
+namespace ProjectFlowWebApp.Models;
 
 public class EditTaskForm
 {

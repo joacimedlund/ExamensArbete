@@ -1,9 +1,9 @@
-﻿using AlphaWebApp.Data.Entities;
-using AlphaWebApp.Models;
+using ProjectFlowWebApp.Data.Entities;
+using ProjectFlowWebApp.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace AlphaWebApp.Services;
+namespace ProjectFlowWebApp.Services;
 
 public interface IUserService
 {

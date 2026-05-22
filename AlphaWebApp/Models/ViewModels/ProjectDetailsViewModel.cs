@@ -1,7 +1,7 @@
-using AlphaWebApp.Data.Enums;
-using AlphaWebApp.Models;
+using ProjectFlowWebApp.Data.Enums;
+using ProjectFlowWebApp.Models;
 
-namespace AlphaWebApp.Models.ViewModels;
+namespace ProjectFlowWebApp.Models.ViewModels;
 
 public class ProjectDetailsViewModel
 {

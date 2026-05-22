@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 
-namespace AlphaWebApp.Data.Entities;
+namespace ProjectFlowWebApp.Data.Entities;
 
 public class AppUserEntity : IdentityUser
 {

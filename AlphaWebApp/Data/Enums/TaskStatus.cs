@@ -1,4 +1,4 @@
-namespace AlphaWebApp.Data.Enums;
+namespace ProjectFlowWebApp.Data.Enums;
 
 public enum TaskStatus
 {

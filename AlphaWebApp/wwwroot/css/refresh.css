@@ -36,6 +36,14 @@ body {
     margin-bottom: .5rem;
 }
 
+.brand-link img {
+    display: block;
+    width: 170px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 .nav-links .nav-link {
     padding: .85rem 1rem;
     border-radius: 10px;

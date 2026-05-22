@@ -1,8 +1,8 @@
-﻿using AlphaWebApp.Data.Enums;
+using ProjectFlowWebApp.Data.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AlphaWebApp.Data.Entities
+namespace ProjectFlowWebApp.Data.Entities
 {
     public class ProjectEntity
     {

@@ -1,7 +1,7 @@
-using AlphaWebApp.Data.Enums;
-using TaskStatus = AlphaWebApp.Data.Enums.TaskStatus;
+using ProjectFlowWebApp.Data.Enums;
+using TaskStatus = ProjectFlowWebApp.Data.Enums.TaskStatus;
 
-namespace AlphaWebApp.Models.ViewModels;
+namespace ProjectFlowWebApp.Models.ViewModels;
 
 public class TaskItemViewModel
 {

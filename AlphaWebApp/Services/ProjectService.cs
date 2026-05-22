@@ -1,10 +1,10 @@
-﻿using AlphaWebApp.Data.Contexts;
-using AlphaWebApp.Data.Entities;
-using AlphaWebApp.Models;
+using ProjectFlowWebApp.Data.Contexts;
+using ProjectFlowWebApp.Data.Entities;
+using ProjectFlowWebApp.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace AlphaWebApp.Services;
+namespace ProjectFlowWebApp.Services;
 
 
 public interface IProjectService

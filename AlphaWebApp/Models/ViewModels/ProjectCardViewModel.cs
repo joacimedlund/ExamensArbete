@@ -1,6 +1,6 @@
-﻿using AlphaWebApp.Data.Enums;
+using ProjectFlowWebApp.Data.Enums;
 
-namespace AlphaWebApp.Models.ViewModels;
+namespace ProjectFlowWebApp.Models.ViewModels;
 
 
     public class ProjectCardViewModel

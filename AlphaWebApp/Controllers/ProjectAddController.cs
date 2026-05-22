@@ -1,12 +1,12 @@
-﻿using AlphaWebApp.Data.Entities;
-using AlphaWebApp.Models;
-using AlphaWebApp.Models.ViewModels;
-using AlphaWebApp.Services;
+using ProjectFlowWebApp.Data.Entities;
+using ProjectFlowWebApp.Models;
+using ProjectFlowWebApp.Models.ViewModels;
+using ProjectFlowWebApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-namespace AlphaWebApp.Controllers;
+namespace ProjectFlowWebApp.Controllers;
 
 [Authorize]
 public class ProjectAddController(IProjectService svc, UserManager<AppUserEntity> um) : Controller

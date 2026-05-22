@@ -1,13 +1,13 @@
-﻿using AlphaWebApp.Data.Entities;
-using AlphaWebApp.Models;
-using AlphaWebApp.Services;
+using ProjectFlowWebApp.Data.Entities;
+using ProjectFlowWebApp.Models;
+using ProjectFlowWebApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace AlphaWebApp.Controllers;
+namespace ProjectFlowWebApp.Controllers;
 
 public class AuthController(IUserService userService, SignInManager<AppUserEntity> signInManager) : Controller
 {

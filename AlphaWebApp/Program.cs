@@ -1,6 +1,6 @@
-using AlphaWebApp.Data.Contexts;
-using AlphaWebApp.Data.Entities;
-using AlphaWebApp.Services;
+using ProjectFlowWebApp.Data.Contexts;
+using ProjectFlowWebApp.Data.Entities;
+using ProjectFlowWebApp.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
@@ -28,7 +28,7 @@ builder.Services.AddIdentity<AppUserEntity, IdentityRole>(x =>
 
 builder.Services.ConfigureApplicationCookie(x => 
 {
-    x.Cookie.Name = ".Alpha.Auth";
+    x.Cookie.Name = ".ProjectFlow.Auth";
     x.LoginPath = "/Auth/Login";
     x.LogoutPath = "/";
     x.AccessDeniedPath = "/denied";

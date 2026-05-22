@@ -1,8 +1,8 @@
-using AlphaWebApp.Data.Enums;
+using ProjectFlowWebApp.Data.Enums;
 using System.ComponentModel.DataAnnotations;
-using TaskStatus = AlphaWebApp.Data.Enums.TaskStatus;
+using TaskStatus = ProjectFlowWebApp.Data.Enums.TaskStatus;
 
-namespace AlphaWebApp.Data.Entities;
+namespace ProjectFlowWebApp.Data.Entities;
 
 public class TaskEntity
 {
